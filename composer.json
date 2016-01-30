@@ -40,7 +40,7 @@
         "squizlabs/php_codesniffer": "^2.5.1"
     },
     "scripts"          : {
-        "test"       : [
+        "test"   : [
             "vendor/bin/phpcs --colors"
         ],
         "test-ci": [
