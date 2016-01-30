@@ -39,6 +39,9 @@
     "require-dev"      : {
         "squizlabs/php_codesniffer": "^2.5.1"
     },
+    "suggest"          : {
+        "mgibbs189/custom-field-suite": "Required, you should install it your way"
+    },
     "scripts"          : {
         "test"   : [
             "vendor/bin/phpcs --colors"
