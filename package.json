@@ -5,8 +5,8 @@
         "url" : "https://github.com/devaloka/cfs-network-support.git"
     },
     "scripts"        : {
-        "lint"       : "remark -u remark-lint README.md",
-        "lint-travis": "remark -f -u remark-lint README.md"
+        "lint"   : "remark -u remark-lint README.md",
+        "lint-ci": "remark -f -u remark-lint README.md"
     },
     "devDependencies": {
         "gulp"        : "^3.9.0",
