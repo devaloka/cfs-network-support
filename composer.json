@@ -1,0 +1,69 @@
+{
+    "name"             : "devaloka/cfs-network-support",
+    "description"      : "A Custom Field Suite add-on plugin that adds an ability to support Network (Multisite)",
+    "version"          : "0.1.0",
+    "type"             : "wordpress-plugin",
+    "keywords"         : [
+        "wordpress",
+        "plugin",
+        "network",
+        "multisite",
+        "custom field",
+        "cfs"
+    ],
+    "homepage"         : "https://github.com/devaloka/cfs-network-support",
+    "license"          : [
+        "GPL-2.0",
+        "GPL-3.0"
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable"    : true,
+    "authors"          : [
+        {
+            "name"    : "Whizark",
+            "email"   : "devaloka@whizark.com",
+            "homepage": "http://whizark.com",
+            "role"    : "Developer"
+        }
+    ],
+    "support"          : {
+        "email" : "devaloka@whizark.com",
+        "issues": "https://github.com/devaloka/cfs-network-support/issues",
+        "wiki"  : "https://github.com/devaloka/cfs-network-support/wiki",
+        "source": "https://github.com/devaloka/cfs-network-support"
+    },
+    "require"          : {
+        "php"                : ">=5.5.9",
+        "composer/installers": "~1.0"
+    },
+    "require-dev"      : {
+        "squizlabs/php_codesniffer": "^2.5.1"
+    },
+    "scripts"          : {
+        "test"       : [
+            "vendor/bin/phpcs --colors"
+        ],
+        "test-travis": [
+            "vendor/bin/phpcs --colors"
+        ]
+    },
+    "archive"          : {
+        "exclude": [
+            ".gitignore",
+            ".gitattributes",
+            ".mailmap",
+            ".editorconfig",
+            "package.json",
+            "npm-shrinkwrap.json",
+            ".remarkignore",
+            ".remarkrc",
+            "gulpfile.js",
+            "composer.json",
+            "phpcs.xml.dist",
+            ".travis.yml"
+        ]
+    },
+    "extra"            : {
+        "installer-loader": "loader/50-cfs-network-support-loader.php"
+    }
+}
