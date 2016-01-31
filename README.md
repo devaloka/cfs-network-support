@@ -6,7 +6,7 @@
 [![Build Status][travis-image]][travis-url]
 
 A [Custom Field Suite][custom-field-suite] add-on plugin that adds an ability to
-support Network (Multisite).
+support Network (Multisite environment).
 
 ## Manual Installation
 

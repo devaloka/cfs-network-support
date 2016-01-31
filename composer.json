@@ -1,6 +1,6 @@
 {
     "name"             : "devaloka/cfs-network-support",
-    "description"      : "A Custom Field Suite add-on plugin that adds an ability to support Network (Multisite)",
+    "description"      : "A Custom Field Suite add-on plugin that adds an ability to support Network (Multisite environment)",
     "version"          : "0.1.0",
     "type"             : "wordpress-plugin",
     "keywords"         : [
