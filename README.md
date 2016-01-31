@@ -56,14 +56,6 @@ echo CFS()->get('first_name', false, ['site_id' => 1]);
 
 See also [get - Custom Field Suite](http://docs.customfieldsuite.com/api/get.html).
 
-```php
-$related_ids = CFS()->get_reverse_related($post->ID, [
-    'field_name' => 'related_events',
-    'post_type'  => 'news',
-    'site_id'    => 1,    
-]);
-```
-
 ### Save field value(s)
 
 ```php
