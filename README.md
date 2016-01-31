@@ -8,11 +8,13 @@
 A [Custom Field Suite][custom-field-suite] add-on plugin that adds an ability to
 support Network (Multisite environment).
 
-## Manual Installation
+## Installation
+
+### Manual Installation
 
 1.  Just copy all files into `<ABSPATH>wp-content/plugins/cfs-network-support/`.
 
-## Manual Installation (as a Must-Use plugin)
+### Manual Installation (as a Must-Use plugin)
 
 1.  Just copy all files into
     `<ABSPATH>wp-content/mu-plugins/cfs-network-support/`.
@@ -20,7 +22,7 @@ support Network (Multisite environment).
 2.  Move `cfs-network-support/loader/50-cfs-network-support-loader.php`
     into `<ABSPATH>wp-content/mu-plugins/`.
 
-## Installation via Composer
+### Installation via Composer
 
 1.  Install via Composer.
 
@@ -28,7 +30,7 @@ support Network (Multisite environment).
     composer require devaloka/cfs-network-support
     ```
 
-## Installation via Composer (as a Must-Use plugin)
+### Installation via Composer (as a Must-Use plugin)
 
 1.  Install via Composer.
 
@@ -41,6 +43,49 @@ support Network (Multisite environment).
 
 3.  Move `cfs-network-support/loader/50-cfs-network-support-loader.php`
     into `<ABSPATH>wp-content/mu-plugins/`.
+
+## Usage
+
+Just pass Site ID with `site_id` key to CFS API options.
+
+### Get field value(s)
+
+```php
+echo CFS()->get('first_name', false, ['site_id' => 1]);
+```
+
+See also [get - Custom Field Suite](http://docs.customfieldsuite.com/api/get.html).
+
+```php
+$related_ids = CFS()->get_reverse_related($post->ID, [
+    'field_name' => 'related_events',
+    'post_type'  => 'news',
+    'site_id'    => 1,    
+]);
+```
+
+### Save field value(s)
+
+```php
+$field_data = ['first_name' => 'Matt'];
+$post_data  = ['ID' => 678];
+
+CFS()->save($field_data, $post_data, ['site_id' => 1]);
+```
+
+See also [save - Custom Field Suite](http://docs.customfieldsuite.com/api/save.html).
+
+### Get reverse-related Posts
+
+```php
+$related_ids = CFS()->get_reverse_related($post->ID, [
+    'field_name' => 'related_events',
+    'post_type'  => 'news',
+    'site_id'    => 1,    
+]);
+```
+
+See also [get\_reverse\_related - Custom Field Suite](http://docs.customfieldsuite.com/api/get_reverse_related.html).
 
 [custom-field-suite]: https://ja.wordpress.org/plugins/custom-field-suite/
 
