@@ -11,3 +11,17 @@ Text Domain: cfs-network-support
 Domain Path: /languages
 Network: true
 */
+
+if (!defined('ABSPATH')) {
+    exit;
+}
+
+use Devaloka\Plugin\CfsNetworkSupport\Plugin;
+
+require_once __DIR__ . '/src/Api.php';
+require_once __DIR__ . '/src/Subscriber.php';
+require_once __DIR__ . '/src/Plugin.php';
+
+$cfs_network_support = new Plugin();
+
+$cfs_network_support->boot();
