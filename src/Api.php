@@ -326,7 +326,7 @@ class Api
 
         switch_to_blog($siteId);
 
-        $this->rawApi->cache = $this->networkWideCache[$siteId];
+        $this->rawApi->cache = isset($this->networkWideCache[$siteId]) ? $this->networkWideCache[$siteId] : [];
     }
 
     /**
