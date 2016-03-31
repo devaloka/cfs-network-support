@@ -96,11 +96,11 @@ class Api
     }
 
     /**
-     * is triggered by calling isset() or empty() on inaccessible members.
+     * Is triggered by calling isset() or empty() on inaccessible members.
      *
-     * @param $name string
+     * @param $name string The name.
      *
-     * @return bool
+     * @return bool True if accessible, false otherwise.
      */
     public function __isset($name)
     {
@@ -108,7 +108,7 @@ class Api
     }
 
     /**
-     * is invoked when unset() is used on inaccessible members.
+     * Is invoked when unset() is used on inaccessible members.
      *
      * @param $name string The name.
      */
