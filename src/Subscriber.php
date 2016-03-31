@@ -54,6 +54,7 @@ class Subscriber
      */
     public function onCfsInit()
     {
+        $this->plugin->extendFieldGroup();
         $this->plugin->extendApi();
     }
 }

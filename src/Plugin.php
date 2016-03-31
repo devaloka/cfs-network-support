@@ -31,11 +31,17 @@ class Plugin
     protected $api;
 
     /**
+     * @var FieldGroup An instance of FieldGroup.
+     */
+    protected $fieldGroup;
+
+    /**
      * Plugin constructor.
      */
     public function __construct()
     {
         $this->api        = new Api();
+        $this->fieldGroup = new FieldGroup();
         $this->subscriber = new Subscriber($this);
     }
 
@@ -47,6 +53,16 @@ class Plugin
     public function getApi()
     {
         return $this->api;
+    }
+
+    /**
+     * Gets FieldGroup of the current instance.
+     *
+     * @return FieldGroup The instance of FieldGroup.
+     */
+    public function getFieldGroup()
+    {
+        return $this->fieldGroup;
     }
 
     /**
@@ -75,6 +91,24 @@ class Plugin
     public function restoreApi()
     {
         Custom_Field_Suite::instance()->api = $this->api->reveal();
+    }
+
+    /**
+     * Wraps and extends CFS Field Group.
+     */
+    public function extendFieldGroup()
+    {
+        $this->fieldGroup->wrap(Custom_Field_Suite::instance()->field_group);
+
+        Custom_Field_Suite::instance()->field_group = $this->fieldGroup;
+    }
+
+    /**
+     * Restores the original CFS Field Group.
+     */
+    public function restoreFieldGroup()
+    {
+        Custom_Field_Suite::instance()->field_group = $this->fieldGroup->reveal();
     }
 
     /**

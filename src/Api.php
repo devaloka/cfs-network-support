@@ -148,17 +148,13 @@ class Api
      */
     public function get($fieldName, $postId = null, array $options = [])
     {
-        $hasSiteIdOption = isset($options['site_id']);
+        $siteId = isset($options['site_id']) ? (int) $options['site_id'] : get_current_blog_id();
 
-        if ($hasSiteIdOption) {
-            $this->switch_to_blog((int) $options['site_id']);
-        }
+        $this->switch_to_blog($siteId);
 
         $value = $this->rawApi->get($fieldName, $postId, $options);
 
-        if ($hasSiteIdOption) {
-            $this->restore_blog();
-        }
+        $this->restore_blog();
 
         return $value;
     }
@@ -174,17 +170,13 @@ class Api
      */
     public function get_field($fieldName, $postId = null, array $options = [])
     {
-        $hasSiteIdOption = isset($options['site_id']);
+        $siteId = isset($options['site_id']) ? (int) $options['site_id'] : get_current_blog_id();
 
-        if ($hasSiteIdOption) {
-            $this->switch_to_blog((int) $options['site_id']);
-        }
+        $this->switch_to_blog($siteId);
 
         $field = $this->rawApi->get_field($fieldName, $postId, $options);
 
-        if ($hasSiteIdOption) {
-            $this->restore_blog();
-        }
+        $this->restore_blog();
 
         return $field;
     }
@@ -199,17 +191,13 @@ class Api
      */
     public function get_fields($postId, array $options = [])
     {
-        $hasSiteIdOption = isset($options['site_id']);
+        $siteId = isset($options['site_id']) ? (int) $options['site_id'] : get_current_blog_id();
 
-        if ($hasSiteIdOption) {
-            $this->switch_to_blog((int) $options['site_id']);
-        }
+        $this->switch_to_blog($siteId);
 
         $fields = $this->rawApi->get_fields($postId, $options);
 
-        if ($hasSiteIdOption) {
-            $this->restore_blog();
-        }
+        $this->restore_blog();
 
         return $fields;
     }
@@ -237,17 +225,13 @@ class Api
      */
     public function get_reverse_related($postId, array $options = [])
     {
-        $hasSiteIdOption = isset($options['site_id']);
+        $siteId = isset($options['site_id']) ? (int) $options['site_id'] : get_current_blog_id();
 
-        if ($hasSiteIdOption) {
-            $this->switch_to_blog((int) $options['site_id']);
-        }
+        $this->switch_to_blog($siteId);
 
         $values = $this->rawApi->get_reverse_related($postId, $options);
 
-        if ($hasSiteIdOption) {
-            $this->restore_blog();
-        }
+        $this->restore_blog();
 
         return $values;
     }
@@ -263,17 +247,13 @@ class Api
      */
     public function save_fields(array $fields = [], array $post = [], array $options = [])
     {
-        $hasSiteIdOption = isset($options['site_id']);
+        $siteId = isset($options['site_id']) ? (int) $options['site_id'] : get_current_blog_id();
 
-        if ($hasSiteIdOption) {
-            $this->switch_to_blog((int) $options['site_id']);
-        }
+        $this->switch_to_blog($siteId);
 
         $postId = $this->rawApi->save_fields($fields, $post, $options);
 
-        if ($hasSiteIdOption) {
-            $this->restore_blog();
-        }
+        $this->restore_blog();
 
         return $postId;
     }
