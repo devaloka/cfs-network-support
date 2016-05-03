@@ -22,6 +22,11 @@ use Custom_Field_Suite;
 class Api
 {
     /**
+     * @var string The class name for the original CFS API invocation in a static context.
+     */
+    protected static $rawClassName = 'cfs_api';
+
+    /**
      * @var mixed[] The cache to store the original CFS cache.
      */
     public $cache = [];
@@ -56,7 +61,27 @@ class Api
      */
     public static function __callStatic($name, $arguments)
     {
-        return forward_static_call_array(['cfs_api', $name], $arguments);
+        return forward_static_call_array([static::$rawClassName, $name], $arguments);
+    }
+
+    /**
+     * Gets the class name for the original CFS API invocation in a static context.
+     *
+     * @return string The class name.
+     */
+    public static function getRawClassName()
+    {
+        return static::$rawClassName;
+    }
+
+    /**
+     * Sets the class name for the original CFS API invocation in a static context.
+     *
+     * @param string $className The class name.
+     */
+    public static function setRawClassName($className)
+    {
+        static::$rawClassName = $className;
     }
 
     /**
@@ -69,7 +94,7 @@ class Api
      */
     public function __call($name, $arguments)
     {
-        return call_user_func_array(['cfs_api', $name], $arguments);
+        return call_user_func_array([$this->rawApi, $name], $arguments);
     }
 
     /**
