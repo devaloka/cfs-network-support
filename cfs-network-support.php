@@ -2,7 +2,7 @@
 /*
 Plugin Name: CFS Network Support
 Description: A Custom Field Suite add-on plugin that adds an ability to support Network (Multisite environment)
-Version: 0.2.0
+Version: 0.3.0
 Author: Whizark
 Author URI: http://whizark.com
 License: GPL-2.0+
