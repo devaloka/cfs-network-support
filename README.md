@@ -79,7 +79,7 @@ $related_ids = CFS()->get_reverse_related($post->ID, [
 
 See also [get\_reverse\_related - Custom Field Suite](http://docs.customfieldsuite.com/api/get_reverse_related.html).
 
-[custom-field-suite]: https://ja.wordpress.org/plugins/custom-field-suite/
+[custom-field-suite]: https://wordpress.org/plugins/custom-field-suite/
 
 [stable-image]: https://poser.pugx.org/devaloka/cfs-network-support/v/stable
 [stable-url]: https://packagist.org/packages/devaloka/cfs-network-support
